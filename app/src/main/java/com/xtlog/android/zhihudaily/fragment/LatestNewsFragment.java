@@ -1,6 +1,8 @@
 package com.xtlog.android.zhihudaily.fragment;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +19,7 @@ import android.view.ViewGroup;
 
 import com.google.gson.Gson;
 import com.xtlog.android.zhihudaily.R;
+import com.xtlog.android.zhihudaily.activity.MainActivity;
 import com.xtlog.android.zhihudaily.adapter.LatestNewsAdapter;
 import com.xtlog.android.zhihudaily.base.MyApplication;
 import com.xtlog.android.zhihudaily.models.LatestNews;
@@ -71,6 +74,9 @@ public class LatestNewsFragment extends Fragment implements SwipeRefreshLayout.O
             switch(msg.what){
                 case SEND_JSON:
                     parseJSONtoUI();
+                    SharedPreferences.Editor editor = MainActivity.sMainActivity.getSharedPreferences("data", Context.MODE_PRIVATE).edit();
+                    editor.putString("json", JSONString);
+                    editor.apply();
                     break;
 
                 case REFRESH_COMPLETE:

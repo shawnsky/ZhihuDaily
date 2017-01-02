@@ -25,8 +25,7 @@
         </activity>
         <activity
             android:name=".activity.DetailActivity"
-            android:label="文章"
-            >
+            android:label="文章">
         </activity>
         <activity
             android:name=".activity.CommentActivity"
@@ -37,9 +36,16 @@
             android:label="该评论"
             android:theme="@style/Theme.AppCompat.Light.Dialog">
         </activity>
-        <activity android:name=".activity.SingleSectionActivity"
+        <activity
+            android:name=".activity.SingleSectionActivity"
             android:label="栏目">
         </activity>
+
+        <service
+            android:name=".service.PushService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
     </application>
 
 </manifest>
